@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Paiement Sécurisé - Éditions Dhabarry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb3af",
+                        "inverse-primary": "#d4c4b5",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1d1b1a",
+                        "on-primary-fixed": "#231a11",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#f1e0d0",
+                        "surface-container": "#f2edea",
+                        "primary-container": "#231a11",
+                        "surface-bright": "#fef8f6",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#9a4340",
+                        "secondary-fixed": "#ffdad7",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#7c2c2b",
+                        "surface-variant": "#e7e1df",
+                        "primary-fixed-dim": "#d4c4b5",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#695c50",
+                        "on-tertiary-fixed": "#211b0f",
+                        "on-tertiary-fixed-variant": "#4e4638",
+                        "outline-variant": "#d0c4bb",
+                        "on-primary-container": "#8f8174",
+                        "on-secondary-container": "#782828",
+                        "on-surface-variant": "#4d453f",
+                        "on-secondary-fixed": "#400005",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#efe1ce",
+                        "on-surface": "#1d1b1a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#ff928c",
+                        "surface-dim": "#ded9d7",
+                        "surface": "#fef8f6",
+                        "on-tertiary-container": "#8d8272",
+                        "surface-container-low": "#f8f2f0",
+                        "inverse-surface": "#32302f",
+                        "surface-container-high": "#ece7e5",
+                        "tertiary-fixed-dim": "#d2c5b3",
+                        "background": "#fef8f6",
+                        "on-error-container": "#93000a",
+                        "outline": "#7e756e",
+                        "inverse-on-surface": "#f5f0ed",
+                        "on-primary-fixed-variant": "#504539",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-container-highest": "#e7e1df",
+                        "tertiary-container": "#211b0f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "80px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-md": "32px",
+                        "stack-sm": "12px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDpGLte9nFQxpn_9tMpLspiyOckN2EZ7nHxpMSNRGdwRdV81Mvi6oX3SFtvyDvqVEB5eB1FCvPSu1tgp8KJkI91gbY1v9SqNwysuLwC1MjkukK0bFTy6wYg1_-RHU75HyCvlC9sZRiZ4kuF2e-9HnG2PHAZ9oNemf24WJnCpER5_kDZUyQQE6bDt0683dylnfkAtq923iJj3tQXJ_ygP7OZ5-RVgzQ69JIilvomPKdI9yA_6YKit1UYHCDv8wxvJb-n4THS-QNT5e7G)
+    }
+.editorial-input {
+    border: none;
+    border-bottom: 1px solid theme("colors.outline-variant");
+    background: transparent;
+    padding: 0.75rem 0;
+    width: 100%;
+    transition: border-color 0.3s ease
+    }
+.editorial-input:focus {
+    outline: none;
+    border-bottom-color: theme("colors.secondary");
+    box-shadow: none
+    }
+.sticky-summary {
+    position: sticky;
+    top: 120px
+    }
+/* Material Symbols weight configuration */
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+    }</style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<div class="film-grain"></div>
+<!-- Header: Simplified TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<a class="font-display-xl text-[22px] text-primary tracking-tighter font-extrabold" href="index.html">EDITIONS DHABARRY</a>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span class="font-label-sm text-label-sm">Paiement Sécurisé</span>
+</div>
+</header>
+<main class="pt-32 pb-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Checkout Forms -->
+<div class="lg:col-span-7 space-y-stack-lg">
+<!-- Section 1: Contact -->
+<section>
+<div class="flex items-center gap-4 mb-stack-md">
+<span class="font-display-xl text-headline-md opacity-20">01</span>
+<h2 class="font-headline-md text-headline-md border-b border-secondary/20 pb-2 flex-grow">COORDONNÉES</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Prénom</label>
+<input class="editorial-input" placeholder="Jean" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Nom</label>
+<input class="editorial-input" placeholder="Dupont" type="text"/>
+</div>
+<div class="md:col-span-2 space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Email <span class="normal-case tracking-normal font-normal opacity-60 text-xs">— Votre ebook sera envoyé sur cet email</span></label>
+<input class="editorial-input" placeholder="jean.dupont@email.com" type="email" required/>
+</div>
+</div>
+</section>
+<!-- Section 2: Payment -->
+<section>
+<div class="flex items-center gap-4 mb-stack-md">
+<span class="font-display-xl text-headline-md opacity-20">02</span>
+<h2 class="font-headline-md text-headline-md border-b border-secondary/20 pb-2 flex-grow">PAIEMENT</h2>
+</div>
+<div class="space-y-gutter">
+<!-- Toggle -->
+<div class="flex border border-outline-variant p-1 rounded-sm">
+<button class="flex-1 py-3 text-center font-label-sm text-label-sm uppercase tracking-widest bg-primary text-on-primary transition-all duration-300" id="card-toggle">
+                                Carte Bancaire
+                            </button>
+<button class="flex-1 py-3 text-center font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-all duration-300" id="paypal-toggle">
+                                PayPal
+                            </button>
+</div>
+<!-- Card Details -->
+<div class="space-y-gutter" id="card-fields">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Numéro de carte</label>
+<div class="relative">
+<input class="editorial-input" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="absolute right-0 bottom-3 material-symbols-outlined text-on-surface-variant">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Expiration</label>
+<input class="editorial-input" placeholder="MM / YY" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">CVC</label>
+<input class="editorial-input" placeholder="123" type="text"/>
+</div>
+</div>
+</div>
+<button class="w-full bg-secondary hover:bg-secondary-fixed-variant text-on-primary py-5 rounded-full font-label-sm text-label-sm uppercase tracking-widest transition-all duration-300 active:scale-[0.98]">
+                            Confirmer l’achat — 29,90 €
+                        </button>
+<!-- Trust Badges -->
+<div class="flex flex-wrap justify-between items-center pt-8 border-t border-outline-variant opacity-60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-sm text-[10px] uppercase tracking-tighter">SSL 256 bits Encryption</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="font-label-sm text-[10px] uppercase tracking-tighter">Livraison instantanée</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shield</span>
+<span class="font-label-sm text-[10px] uppercase tracking-tighter">Garantie Éditeur</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Sidebar Summary -->
+<aside class="lg:col-span-5">
+<div class="sticky-summary bg-surface-container-low border border-outline-variant p-8">
+<h3 class="font-headline-md text-headline-md mb-8 pb-4 border-b border-outline-variant">RÉCAPITULATIF</h3>
+<div class="flex gap-6 items-start mb-8">
+<div class="w-24 flex-shrink-0">
+<img alt="Couverture du livre L'Intelligence Émotionnelle" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGRV7e2nIHRiCUeVrapbtDz8hwYbc5e6Wji5gOKclFOCvAEu7X2yUlT0V3fD5MKeKlYqligApKOqUujy-vOPJN2QQeYLwfkPtPak1e_-dsmUhOH1TY4nBEY95i_qOhj4aSuGnwdP_xsBOKTHv9HmuOv_kvIhHpBd3BB2yZiAsYtK6k1fAX9d5qpu88FDORuUCTn596RtTduHU06QVU-8D46zaKTxrQkV05Sl1_VCRAX5ktQbY-di0kG7GrJPDGIlOCdiKQkNpxQFCE"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-[18px] leading-snug mb-1">L’Intelligence Émotionnelle</h4>
+<p class="font-body-md text-on-surface-variant text-sm italic mb-2">Collection Essais Philosophiques</p>
+<span class="font-label-sm text-label-sm text-secondary">29,90 €</span>
+</div>
+</div>
+<div class="space-y-4 border-t border-outline-variant pt-8">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Sous-total</span>
+<span class="font-body-md">24,92 €</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">TVA (5.5%)</span>
+<span class="font-body-md">4,98 €</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Frais d'envoi</span>
+<span class="font-body-md uppercase text-label-sm tracking-widest text-secondary">Offert</span>
+</div>
+<div class="flex justify-between items-center border-t border-primary/10 pt-4 mt-4">
+<span class="font-headline-md text-headline-md">Total</span>
+<span class="font-headline-md text-headline-md">29,90 €</span>
+</div>
+</div>
+<div class="mt-12 bg-white/50 p-6 space-y-4">
+<p class="font-body-md text-xs leading-relaxed text-on-surface-variant">
+                            En validant votre commande, vous recevrez immédiatement votre ebook par email. Chaque ouvrage numérique des Éditions Dhabarry est soigneusement composé et livré au format PDF haute qualité.
+                        </p>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px]">help_outline</span>
+<span class="font-label-sm text-[10px] uppercase tracking-widest hover:text-secondary cursor-pointer">Besoin d'aide ? Contactez-nous</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer: Minimal 2-col -->
+<footer class="w-full py-stack-lg px-margin-desktop bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter border-t border-white/10 pt-16">
+<div class="space-y-6">
+<p class="font-display-xl text-headline-md text-on-primary">Editions Dhabarry</p>
+<p class="font-body-md text-on-primary/60 max-w-sm">
+                    L'excellence de l'édition française, au service de la pensée contemporaine et du bel objet.
+                </p>
+</div>
+<div class="flex flex-col md:items-end justify-between space-y-8 md:space-y-0">
+<nav class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="font-label-sm text-label-sm uppercase tracking-widest hover:text-secondary-container transition-colors" href="#">Mentions Légales</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest hover:text-secondary-container transition-colors" href="#">CGV</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest hover:text-secondary-container transition-colors" href="#">Contact</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest hover:text-secondary-container transition-colors" href="#">Presse</a>
+</nav>
+<p class="font-label-sm text-[10px] uppercase tracking-[0.2em] text-on-primary/40">
+                    © 2024 Editions Dhabarry. Tous droits réservés.
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Interaction for Toggle
+        const cardBtn = document.getElementById('card-toggle');
+        const paypalBtn = document.getElementById('paypal-toggle');
+        const cardFields = document.getElementById('card-fields');
+
+        cardBtn.addEventListener('click', () => {
+            cardBtn.classList.add('bg-primary', 'text-on-primary');
+            paypalBtn.classList.remove('bg-primary', 'text-on-primary');
+            cardFields.style.opacity = '1';
+            cardFields.style.pointerEvents = 'auto';
+        });
+
+        paypalBtn.addEventListener('click', () => {
+            paypalBtn.classList.add('bg-primary', 'text-on-primary');
+            cardBtn.classList.remove('bg-primary', 'text-on-primary');
+            cardFields.style.opacity = '0.4';
+            cardFields.style.pointerEvents = 'none';
+        });
+
+        // Input effect
+        document.querySelectorAll('.editorial-input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').style.color = '#9a4340';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label').style.color = '';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Editions Dhabarry — Maison d'Édition Littéraire</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb3af",
+                        "inverse-primary": "#d4c4b5",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1d1b1a",
+                        "on-primary-fixed": "#231a11",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#f1e0d0",
+                        "surface-container": "#f2edea",
+                        "primary-container": "#231a11",
+                        "surface-bright": "#fef8f6",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#9a4340",
+                        "secondary-fixed": "#ffdad7",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#7c2c2b",
+                        "surface-variant": "#e7e1df",
+                        "primary-fixed-dim": "#d4c4b5",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#695c50",
+                        "on-tertiary-fixed": "#211b0f",
+                        "on-tertiary-fixed-variant": "#4e4638",
+                        "outline-variant": "#d0c4bb",
+                        "on-primary-container": "#8f8174",
+                        "on-secondary-container": "#782828",
+                        "on-surface-variant": "#4d453f",
+                        "on-secondary-fixed": "#400005",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#efe1ce",
+                        "on-surface": "#1d1b1a",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#ff928c",
+                        "surface-dim": "#ded9d7",
+                        "surface": "#fef8f6",
+                        "on-tertiary-container": "#8d8272",
+                        "surface-container-low": "#f8f2f0",
+                        "inverse-surface": "#32302f",
+                        "surface-container-high": "#ece7e5",
+                        "tertiary-fixed-dim": "#d2c5b3",
+                        "background": "#fef8f6",
+                        "on-error-container": "#93000a",
+                        "outline": "#7e756e",
+                        "inverse-on-surface": "#f5f0ed",
+                        "on-primary-fixed-variant": "#504539",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-container-highest": "#e7e1df",
+                        "tertiary-container": "#211b0f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "80px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "stack-md": "32px",
+                        "container-max": "1280px",
+                        "stack-sm": "12px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "1", "letterSpacing": "0.14em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>.film-grain::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCTO9__YWyD1eRe--FIhCOijd2eIEPZZOeyN7bhrpmOHysS7OBpqWt2Smq3-7QtdoED24bdW80Pf8mOPzGofMeO9J5iuns9cS6ceA-7uP-6yn2N28rVIxJwTBKaXsSpN-NZ9ewlk1MArON9NSjNiM9fo5dwxruvMBjvGxi5Pzc9WL3_5i2iHRj_wDMTZEx7vBHd2x7pxWYpAtdbO5Q_HY4UxfURIJFvfkb81LmHb_XIRUesaeEnRutcMjrmulbgUzfSA1eWwLOdXeUr);
+    filter: contrast(150%) brightness(100%)
+    }
+.marquee {
+    overflow: hidden;
+    white-space: nowrap
+    }
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite
+    }
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+        } 100% {
+        transform: translateX(-50%);
+        }
+    }
+.book-stack-main {
+    transform: translatez(40px)
+    }
+.book-stack-back-1 {
+    transform: rotate(-5deg) translatex(-30px) translatez(-20px);
+    filter: blur(2px);
+    opacity: 0.6
+    }
+.book-stack-back-2 {
+    transform: rotate(8deg) translatex(30px) translatez(-40px);
+    filter: blur(4px);
+    opacity: 0.4
+    }
+::-webkit-scrollbar {
+    width: 6px
+    }
+::-webkit-scrollbar-track {
+    background: #fef8f6
+    }
+::-webkit-scrollbar-thumb {
+    background: #d0c4bb
+    }
+.active-nav {
+    color: #9a4340 !important;
+    font-weight: 700
+    }</style>
+</head>
+<body class="bg-background text-on-background font-body-md film-grain overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
+<div class="font-display-xl text-[22px] text-primary tracking-tighter font-extrabold uppercase">
+            Editions Dhabarry
+        </div>
+<nav class="hidden md:flex items-center gap-stack-md">
+<a class="font-label-sm text-label-sm uppercase text-secondary font-bold tracking-widest transition-colors duration-300" href="catalogue.html">CATALOGUE</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-secondary transition-colors duration-300" href="catalogue.html">AUTEURS</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-secondary transition-colors duration-300" href="catalogue.html">REVUE</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-secondary transition-colors duration-300" href="catalogue.html">LIBRAIRIE</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-label-sm text-label-sm uppercase border border-primary px-6 py-2 hover:bg-primary hover:text-on-primary transition-all duration-300">
+                PANIER
+            </button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="min-h-[85vh] flex items-center px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7 pr-stack-md">
+<span class="font-label-sm text-label-sm text-secondary tracking-[0.3em] uppercase block mb-6">ÉDITIONS DHABARRY</span>
+<h1 class="font-display-xl text-display-xl mb-12 leading-[1.05]">
+                        Des livres qui <span class="italic text-secondary">transforment</span> votre quotidien.
+                    </h1>
+<div class="flex flex-wrap items-center gap-stack-md mb-stack-lg">
+<a class="inline-block px-10 py-4 bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest transition-opacity hover:opacity-90" href="catalogue.html">
+                            Explorer la collection
+                        </a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant border-b border-outline-variant pb-1 hover:text-secondary hover:border-secondary transition-all" href="ebook-intelligence-emotionnelle.html">
+                            Notre titre phare →
+                        </a>
+</div>
+<div class="grid grid-cols-3 gap-stack-md border-t border-outline-variant pt-stack-md">
+<div>
+<p class="font-display-xl text-[28px] text-primary">12k+</p>
+<p class="text-on-surface-variant font-body-md text-[13px]">Lecteurs engagés</p>
+</div>
+<div>
+<p class="font-display-xl text-[28px] text-primary">24</p>
+<p class="text-on-surface-variant font-body-md text-[13px]">Titres publiés</p>
+</div>
+<div>
+<p class="font-display-xl text-[28px] text-primary">4.9/5</p>
+<p class="text-on-surface-variant font-body-md text-[13px]">Satisfaction</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 relative flex justify-center perspective-1000">
+<!-- Book Covers Stack -->
+<a class="relative w-[320px] h-[450px] block" href="ebook-intelligence-emotionnelle.html" title="L'Intelligence Émotionnelle — Editions Dhabarry">
+<img class="book-stack-back-2 absolute inset-0 w-full h-full object-cover shadow-2xl rounded-sm" data-alt="The blurred book cover of an Editions Dhabarry publication appearing behind the main book, featuring a minimalist design with artistic typography and a neutral, warm color palette, styled in the high-end French publishing house aesthetic. The background is soft and out of focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq9HPNGoPvFOnVLhG5ijdQzq1TEITpskCPDmKB8h_-MC_SVosxXyeVlHPDJCKIX0q4tkvwRTSQ4QoLdKkbXPZ8DHxk4Fi7_flrCnzzUmDPQ9lQ0Zd-caY47f-VIX_THkzzb0ie1VAItQcrxdZbPvB-ugMjsefhteDGW2x5r_FmLOLN7lG3Ge7KX9t4d0jkabSRZvPJpfDkrgDI9sJJHDZKtZvfhpe0tZmYkNd8QMyH0w8_ZObzwwZj7M4iSuQHuK_lqS0jiX9zZdZq"/>
+<img class="book-stack-back-1 absolute inset-0 w-full h-full object-cover shadow-2xl rounded-sm" data-alt="A semi-blurred second book cover in the background stack, displaying a sophisticated black and white editorial design with a thin red border, characteristic of the Editions Dhabarry luxury style. The image has a slight rotation and shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAHCj2W_4e1F6ipm5kjLERdQsRIz4Dpzbn3HrVTGlUwb7xqaez7iD_R1aOrmHbZ94VQg63FcoCBauq1hp-EgsZUN6sb8mgXhcFrUsNjEBkSjItvSOfapykokr3Q-qyaPEEZPAMiFPKWZoU959VPhLgTKzQRlwBOfyssFju_D0QiZNAMORCJFXIq6jlOLLwE6GR2fJJoctrCdoMaAAhDZEASOW6xayZGdeDCE-FTBmXkiEtV9EdugEibA7vqmYOX3AJb1q2rh2XH7DQ"/>
+<img class="book-stack-main absolute inset-0 w-full h-full object-cover shadow-2xl border-l-[3px] border-primary/20 rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGRV7e2nIHRiCUeVrapbtDz8hwYbc5e6Wji5gOKclFOCvAEu7X2yUlT0V3fD5MKeKlYqligApKOqUujy-vOPJN2QQeYLwfkPtPak1e_-dsmUhOH1TY4nBEY95i_qOhj4aSuGnwdP_xsBOKTHv9HmuOv_kvIhHpBd3BB2yZiAsYtK6k1fAX9d5qpu88FDORuUCTn596RtTduHU06QVU-8D46zaKTxrQkV05Sl1_VCRAX5ktQbY-di0kG7GrJPDGIlOCdiKQkNpxQFCE"/>
+</a>
+</div>
+</div>
+</section>
+<!-- Marquee Strip -->
+<section class="bg-primary py-6 marquee">
+<div class="marquee-content flex gap-stack-lg items-center">
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Psychologie</span>
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Management</span>
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Sagesse</span>
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Leadership</span>
+<!-- Repeat for infinite loop -->
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Psychologie</span>
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Management</span>
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Sagesse</span>
+<span class="font-display-xl text-headline-md italic text-on-primary opacity-90 px-8">Leadership</span>
+</div>
+</section>
+<!-- Categories Grid -->
+<section class="max-w-container-max mx-auto border-b border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-5 bg-outline-variant gap-[1px]">
+<div class="bg-surface p-stack-md group cursor-pointer transition-colors hover:bg-surface-container">
+<span class="text-label-sm font-label-sm text-secondary mb-8 block">01</span>
+<h3 class="font-display-xl text-headline-md mb-4">Management</h3>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-body-md">Voir tout</span>
+<span class="material-symbols-outlined">east</span>
+</div>
+</div>
+<div class="bg-surface p-stack-md group cursor-pointer transition-colors hover:bg-surface-container">
+<span class="text-label-sm font-label-sm text-secondary mb-8 block">02</span>
+<h3 class="font-display-xl text-headline-md mb-4">Émotions</h3>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-body-md">Voir tout</span>
+<span class="material-symbols-outlined">east</span>
+</div>
+</div>
+<div class="bg-surface p-stack-md group cursor-pointer transition-colors hover:bg-surface-container">
+<span class="text-label-sm font-label-sm text-secondary mb-8 block">03</span>
+<h3 class="font-display-xl text-headline-md mb-4">Productivité</h3>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-body-md">Voir tout</span>
+<span class="material-symbols-outlined">east</span>
+</div>
+</div>
+<div class="bg-surface p-stack-md group cursor-pointer transition-colors hover:bg-surface-container">
+<span class="text-label-sm font-label-sm text-secondary mb-8 block">04</span>
+<h3 class="font-display-xl text-headline-md mb-4">Philosophie</h3>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-body-md">Voir tout</span>
+<span class="material-symbols-outlined">east</span>
+</div>
+</div>
+<div class="bg-surface p-stack-md group cursor-pointer transition-colors hover:bg-surface-container">
+<span class="text-label-sm font-label-sm text-secondary mb-8 block">05</span>
+<h3 class="font-display-xl text-headline-md mb-4">Santé</h3>
+<div class="flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-body-md">Voir tout</span>
+<span class="material-symbols-outlined">east</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Books Asymmetric Grid -->
+<section class="py-stack-lg px-margin-desktop max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-stack-md">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 block">Sélection</span>
+<h2 class="font-display-xl text-headline-lg">Livres du moment</h2>
+</div>
+<a class="font-label-sm text-label-sm uppercase border-b border-primary pb-1" href="catalogue.html">Voir le catalogue complet</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mt-stack-md">
+<!-- Book 1 (Featured Large) -->
+<div class="md:col-span-5 relative group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-stack-sm relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGRV7e2nIHRiCUeVrapbtDz8hwYbc5e6Wji5gOKclFOCvAEu7X2yUlT0V3fD5MKeKlYqligApKOqUujy-vOPJN2QQeYLwfkPtPak1e_-dsmUhOH1TY4nBEY95i_qOhj4aSuGnwdP_xsBOKTHv9HmuOv_kvIhHpBd3BB2yZiAsYtK6k1fAX9d5qpu88FDORuUCTn596RtTduHU06QVU-8D46zaKTxrQkV05Sl1_VCRAX5ktQbY-di0kG7GrJPDGIlOCdiKQkNpxQFCE"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-surface px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest">Aperçu rapide</button>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-secondary mb-2 uppercase">Daniel Goleman</p>
+<h3 class="font-display-xl text-headline-md mb-2">L'intelligence Émotionnelle</h3>
+<p class="text-on-surface-variant font-body-md">Une exploration profonde de ce qui fait de nous des êtres équilibrés.</p>
+</div>
+<!-- Spacer -->
+<div class="hidden md:block md:col-span-1"></div>
+<!-- Book 2 & 3 Col -->
+<div class="md:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-gutter pt-24">
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-stack-sm relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimalist book cover titled 'La Sagesse Intemporelle' in an elegant serif font, featuring a clean white background with a single, perfectly balanced ink drop illustration at the center. The style is restrained, luxurious, and classically French." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7tDSSFLTE4k6lEClDySmcYM1qCmHsTsarjEoIbh24YEzS0mE8kYJ50qjPwgBMPOUQaCsqX3-tKYHUHwwmWZDx4xMJln9SCbn-aEhF8wOFI7nTBL-Z_9Q46N1EUxeDNS28bBquLW9aBG9JCy6GxSUXZeezZtkH4VSkEuZQ7XnxsDtmxfzwQ7MdVJh2XTc0-hzYbRAIh_zZquVm3S4zVrBb_BUeT8F5Ax44uX99cd5K4riLR6r1QZl0YGXp0-YW0rhyutb_78p_aDrS"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-surface px-6 py-2 font-label-sm text-label-sm uppercase">Détails</button>
+</div>
+</div>
+<h4 class="font-display-xl text-headline-md text-[18px]">La Sagesse Intemporelle</h4>
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant mt-2">Philosophie</p>
+</div>
+<div class="group mt-12">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-stack-sm relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A modern book cover for 'Productivité Radicale' with bold, black typography on a pale beige paper texture background. Minimalist line art depicting a structured garden path. High-end editorial feel with ample white space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8C74tTVQAMB8tTZu-DoD-rwE0jixDB8pF35pqFET5hMRU0gaaB4v24CURgt1wbK47uuNF5gTscz_6Av7E-MmDYoy5JGi2vYCO2bVryn1Tmh6hBTCZzmcN4C03kzGlxR8uMYEHc5Glx95NVcGMA-MnCyvsKIosT7zan_iiBeH67-fUyybdKFR2ppO5vIDRpiBnavG8-fZlLMEi6OJSqovykLkxIikq0_wV73COSAdYeeBCbouZFuEWP8QnD0h5oo68rfP_oTZDBGd2"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-surface px-6 py-2 font-label-sm text-label-sm uppercase">Détails</button>
+</div>
+</div>
+<h4 class="font-display-xl text-headline-md text-[18px]">Productivité Radicale</h4>
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant mt-2">Management</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="relative py-stack-lg flex flex-col items-center justify-center text-center overflow-hidden bg-surface-container-low px-margin-desktop my-stack-lg">
+<span class="material-symbols-outlined text-[120px] text-secondary opacity-10 absolute -top-8 left-1/4 select-none">format_quote</span>
+<div class="max-w-[800px] relative z-10">
+<blockquote class="font-display-xl text-headline-md md:text-[32px] italic leading-relaxed mb-stack-md text-on-surface">
+                    "La lecture est une amitié qui consiste à se retirer du monde pour mieux y revenir, chargé de trésors silencieux."
+                </blockquote>
+<cite class="font-label-sm text-label-sm uppercase tracking-[0.4em] text-secondary not-italic">— MARCEL PROUST</cite>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-stack-lg px-margin-desktop text-center max-w-container-max mx-auto">
+<div class="max-w-[600px] mx-auto">
+<h2 class="font-display-xl text-headline-lg mb-6">Le Journal Dhabarry</h2>
+<p class="text-on-surface-variant font-body-md mb-stack-md">Recevez nos réflexions mensuelles sur la littérature et l'esprit, directement dans votre boîte mail.</p>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-transparent border-b border-primary py-4 px-2 focus:outline-none focus:border-secondary font-body-md placeholder:text-outline" placeholder="votre@email.com" type="email"/>
+<button class="bg-primary text-on-primary px-10 py-4 font-label-sm text-label-sm uppercase tracking-widest transition-opacity hover:opacity-90">
+                        S'abonner
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-desktop bg-primary text-on-primary grid grid-cols-1 md:grid-cols-4 gap-gutter mt-stack-lg">
+<div class="md:col-span-1">
+<div class="font-display-xl text-headline-md text-on-primary mb-6">Editions Dhabarry</div>
+<p class="text-on-primary/70 font-body-md text-[13px] leading-relaxed">
+                Une maison d'édition indépendante dédiée à l'excellence littéraire et au développement de l'esprit humain.
+            </p>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm uppercase mb-8 tracking-widest opacity-60">Collections</h5>
+<ul class="space-y-4 font-body-md">
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">Management</a></li>
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">Philosophie</a></li>
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">Psychologie</a></li>
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">Sagesse</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm uppercase mb-8 tracking-widest opacity-60">Informations</h5>
+<ul class="space-y-4 font-body-md">
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">Mentions Légales</a></li>
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">CGV</a></li>
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">Contact</a></li>
+<li><a class="text-on-primary/70 hover:text-on-primary transition-colors" href="#">Presse</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm uppercase mb-8 tracking-widest opacity-60">Manuscrits</h5>
+<p class="text-on-primary/70 font-body-md text-[13px] mb-6">Nous sommes toujours à la recherche de nouvelles voix inspirantes.</p>
+<a class="inline-block border border-on-primary/30 px-6 py-2 font-label-sm text-label-sm uppercase hover:bg-on-primary hover:text-primary transition-all" href="#">Envoyer</a>
+</div>
+<div class="md:col-span-4 border-t border-on-primary/10 pt-stack-md mt-stack-sm flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-body-md text-[12px] text-on-primary/40">© 2024 Editions Dhabarry. Tous droits réservés.</span>
+<div class="flex gap-stack-md">
+<a class="text-on-primary/40 hover:text-on-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-primary/40 hover:text-on-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for header scroll
+        window.onscroll = function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('h-16', 'shadow-sm');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.add('h-20');
+                header.classList.remove('h-16', 'shadow-sm');
+            }
+        };
+
+        // Subtle parallax/mouse tilt for the book stack
+        document.addEventListener('mousemove', (e) => {
+            const stack = document.querySelector('.perspective-1000');
+            if (!stack) return;
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
+            const mainBook = document.querySelector('.book-stack-main');
+            mainBook.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) translateZ(40px)`;
+        });
+    </script>
+</body></html>

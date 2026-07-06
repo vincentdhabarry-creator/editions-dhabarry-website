@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Catalogue - Editions Dhabarry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb3af",
+                    "inverse-primary": "#d4c4b5",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1d1b1a",
+                    "on-primary-fixed": "#231a11",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#f1e0d0",
+                    "surface-container": "#f2edea",
+                    "primary-container": "#231a11",
+                    "surface-bright": "#fef8f6",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#9a4340",
+                    "secondary-fixed": "#ffdad7",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#7c2c2b",
+                    "surface-variant": "#e7e1df",
+                    "primary-fixed-dim": "#d4c4b5",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#695c50",
+                    "on-tertiary-fixed": "#211b0f",
+                    "on-tertiary-fixed-variant": "#4e4638",
+                    "outline-variant": "#d0c4bb",
+                    "on-primary-container": "#8f8174",
+                    "on-secondary-container": "#782828",
+                    "on-surface-variant": "#4d453f",
+                    "on-secondary-fixed": "#400005",
+                    "primary": "#000000",
+                    "tertiary-fixed": "#efe1ce",
+                    "on-surface": "#1d1b1a",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#ff928c",
+                    "surface-dim": "#ded9d7",
+                    "surface": "#fef8f6",
+                    "on-tertiary-container": "#8d8272",
+                    "surface-container-low": "#f8f2f0",
+                    "inverse-surface": "#32302f",
+                    "surface-container-high": "#ece7e5",
+                    "tertiary-fixed-dim": "#d2c5b3",
+                    "background": "#fef8f6",
+                    "on-error-container": "#93000a",
+                    "outline": "#7e756e",
+                    "inverse-on-surface": "#f5f0ed",
+                    "on-primary-fixed-variant": "#504539",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#000000",
+                    "surface-container-highest": "#e7e1df",
+                    "tertiary-container": "#211b0f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "80px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "stack-md": "32px",
+                    "stack-sm": "12px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "display-xl-mobile": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "display-xl": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-xl-mobile": ["42px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300"}],
+                    "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "1", "letterSpacing": "0.14em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fef8f6;
+            color: #1d1b1a;
+            position: relative;
+        }
+
+        /* Film Grain Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .book-card img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .book-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .book-card .cta-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .book-card:hover .cta-overlay {
+            opacity: 1;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-underline {
+            position: relative;
+        }
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-secondary-fixed selection:text-secondary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-stack-md">
+<span class="font-display-xl text-[22px] text-primary tracking-tighter cursor-pointer">Editions Dhabarry</span>
+<div class="hidden md:flex items-center gap-8 ml-stack-lg">
+<a class="font-label-sm text-secondary font-bold tracking-[0.2em] transition-colors duration-300" href="catalogue.html">CATALOGUE</a>
+<a class="font-label-sm text-on-surface-variant hover:text-secondary tracking-[0.2em] transition-colors duration-300" href="catalogue.html">AUTEURS</a>
+<a class="font-label-sm text-on-surface-variant hover:text-secondary tracking-[0.2em] transition-colors duration-300" href="catalogue.html">REVUE</a>
+<a class="font-label-sm text-on-surface-variant hover:text-secondary tracking-[0.2em] transition-colors duration-300" href="catalogue.html">LIBRAIRIE</a>
+</div>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">search</button>
+<button class="font-label-sm text-on-surface-variant hover:text-primary tracking-widest flex items-center gap-2">
+                PANIER <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Editorial Hero -->
+<header class="max-w-[1280px] mx-auto px-margin-desktop py-stack-lg">
+<div class="editorial-grid">
+<div class="col-span-12 md:col-start-4 md:col-span-8">
+<span class="font-label-sm text-secondary uppercase tracking-[0.3em] block mb-stack-sm">Curated Selection</span>
+<h1 class="font-display-xl text-display-xl md:text-display-xl mb-stack-md leading-tight">L’Espace des Grands Esprits</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl border-l border-outline-variant pl-gutter">
+                        Une curation rigoureuse dédiée au développement de soi, à la clarté intellectuelle et à l'excellence managériale. Nos éditions marient le fond à la forme, créant des objets de savoir qui transcendent le temps.
+                    </p>
+</div>
+</div>
+</header>
+<!-- Filter Bar -->
+<section class="max-w-[1280px] mx-auto px-margin-desktop mb-stack-md sticky top-20 z-40 bg-surface/80 backdrop-blur-sm py-4">
+<div class="flex items-center gap-4 overflow-x-auto no-scrollbar py-2">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-sm whitespace-nowrap transition-all border border-primary">Tout</button>
+<button class="px-6 py-2 rounded-full border border-outline text-on-surface-variant font-label-sm hover:border-secondary hover:text-secondary whitespace-nowrap transition-all">Développement Personnel</button>
+<button class="px-6 py-2 rounded-full border border-outline text-on-surface-variant font-label-sm hover:border-secondary hover:text-secondary whitespace-nowrap transition-all">Management</button>
+<button class="px-6 py-2 rounded-full border border-outline text-on-surface-variant font-label-sm hover:border-secondary hover:text-secondary whitespace-nowrap transition-all">Intelligence Émotionnelle</button>
+<button class="px-6 py-2 rounded-full border border-outline text-on-surface-variant font-label-sm hover:border-secondary hover:text-secondary whitespace-nowrap transition-all">Santé &amp; Bien-être</button>
+<button class="px-6 py-2 rounded-full border border-outline text-on-surface-variant font-label-sm hover:border-secondary hover:text-secondary whitespace-nowrap transition-all">Entrepreneuriat</button>
+</div>
+</section>
+<!-- Book Grid -->
+<section class="max-w-[1280px] mx-auto px-margin-desktop mb-stack-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-stack-md">
+<!-- Book Card 1 -->
+<a class="book-card group cursor-pointer flex flex-col no-underline" href="ebook-intelligence-emotionnelle.html">
+<div class="relative overflow-hidden aspect-[3/4] mb-stack-sm border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A premium book cover for a title called L’Intelligence Émotionnelle featuring a glowing, detailed human brain illustration on a dark black background. The typography is elegant and clean, using a sophisticated Serif font. The image has a cinematic lighting style with a soft glow around the book, set in a minimalist high-end Parisian library environment with soft-focus oak bookshelves in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTpIDzdOIePV6lqc_tE-_biAC2L3JSqnxFIC3VTfH3QHUXbDJrXeVKoT3g_NPC33QWpI9ts1iQRVAvYnmL_ivIqfcDSY0VPtVMhh7iEHlPDRcAhVdnHhFEqcyuzbScB_xVz9HTilCqVuHsDJ0sp165LylPWZmNpInuiqqq3OgQJXkGXLvqJaSbrTAJne_7QnN0-qiaWOXmdTgoZsaKd5MjqrW5P4LiEqbOUXUrcxPc78j9KORcmR5MjaJ9OJBgaKiVhc3bBEICATZO"/>
+<div class="cta-overlay absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[2px]">
+<span class="bg-surface text-primary px-8 py-3 font-label-sm border border-primary hover:bg-primary hover:text-on-primary transition-all duration-300">DÉCOUVRIR</span>
+</div>
+</div>
+<span class="font-label-sm text-secondary mb-1">PSYCHOLOGIE</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-secondary transition-colors">L’Intelligence Émotionnelle</h3>
+<p class="font-body-md text-on-surface-variant mb-3 italic">Editions Dhabarry</p>
+<span class="mt-auto font-label-sm text-on-surface tracking-widest">29,90€</span>
+</a>
+<!-- Book Card 2 -->
+<div class="book-card group cursor-pointer flex flex-col">
+<div class="relative overflow-hidden aspect-[3/4] mb-stack-sm border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A minimalist book cover titled L'Art de la Resilience, featuring a simple, broken gold-veined ceramic motif (Kintsugi style) on a pristine off-white background. The cover is textured like high-quality paper. The lighting is bright and airy, reflecting a clean editorial look. The surrounding scene is a sparse designer desk with a single pen and a glass of water, highlighting the book as the focal point of a sophisticated lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLZhfAVUAZlhLJLajoJ6m1WrFLTeBNOil4ujxC5xXiqrXUNI-NeGyIbtQikbLHM-j5kB_SQPaiYLy4o5lj8OdnVNfxst0JCi6cOjPEdhoOCryRMEtZ6gJl80pFlEoE2HaxfrctFQ6e4aWFsXyc0bcc_2NNAbjO72zUo1Z14k1teN2Mh9PF3I-HxWQg-B2ZcJAz_x9ernunZCFAfB9BOnh9Ef8QZ_aVbQn0-t4sxhA2yuDOOFEtMhHcqXx7Ela9T3tYkbD695Ze14kB"/>
+<div class="cta-overlay absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[2px]">
+<button class="bg-surface text-primary px-8 py-3 font-label-sm border border-primary hover:bg-primary hover:text-on-primary transition-all duration-300">DÉCOUVRIR</button>
+</div>
+</div>
+<span class="font-label-sm text-secondary mb-1">BIEN-ÊTRE</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-secondary transition-colors">L'Art de la Résilience</h3>
+<p class="font-body-md text-on-surface-variant mb-3 italic">Claire Valmond</p>
+<span class="mt-auto font-label-sm text-on-surface tracking-widest">24,50€</span>
+</div>
+<!-- Book Card 3 -->
+<div class="book-card group cursor-pointer flex flex-col">
+<div class="relative overflow-hidden aspect-[3/4] mb-stack-sm border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A high-end book cover titled Strategie de l'Excellence for a business audience, featuring abstract geometric architectural shapes in deep charcoal and subtle gold leaf accents. The lighting is dramatic and moody, casting sharp shadows that suggest power and structure. The image captures the essence of luxury publishing with fine ink details and a heavy-stock paper appearance, set against a dark marble surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0ndJnuzHC9DQX3aXqwyk1MJkQcH6uH6SAoVojgXvVuYwQonfpcNlBuWX050n_4N1WSIQSAAsZ8_21IqMy-hCvJ6nQ-M9akStjSuQNwt_x0yU-C4JEXQyqV0k8-yG0t4GqN2NLhc8sbGdj7cVHp7g7mgvskHUgOIj2fM4YM1jaHkBdMmbK53NVXmaQozxuwuUwEAWFO4MouMoPUNNFHU6_eC0EfHfVQ_wBmirndKOjut6KRt_pyMiEBmln8zUxPozVKhS5VA3Kdxcf"/>
+<div class="cta-overlay absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[2px]">
+<button class="bg-surface text-primary px-8 py-3 font-label-sm border border-primary hover:bg-primary hover:text-on-primary transition-all duration-300">DÉCOUVRIR</button>
+</div>
+</div>
+<span class="font-label-sm text-secondary mb-1">MANAGEMENT</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-secondary transition-colors">Stratégie de l'Excellence</h3>
+<p class="font-body-md text-on-surface-variant mb-3 italic">Jean-Pierre Lefevre</p>
+<span class="mt-auto font-label-sm text-on-surface tracking-widest">35,00€</span>
+</div>
+<!-- Book Card 4 -->
+<div class="book-card group cursor-pointer flex flex-col">
+<div class="relative overflow-hidden aspect-[3/4] mb-stack-sm border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A poetic book cover titled L'Echo du Silence, showing a serene, misty mountain landscape in a minimalist charcoal sketch style on cream paper. The title is embossed in a deep Bordeaux red. The lighting is soft and diffused, creating a calm, meditative mood. The presentation style is luxury editorial, focused on white space and balance, evoking a sense of high-end literary quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB53ujCI1bTSEK791rKmgGDUR0nl5pGUBCsODiXX3YFZ8ETv9P7HAB7PoZ9nxXxSRHWMXa_3fuzZsSeNvIyirMLEwf_ktIs1-_VfyvyOfq6HlRgPW8ajHTMwbb8P-IHl2hrGRmYLg_d5-MBVXVbHhJxKaaF7bL3GZXB6922ZNBmeUdtB2RCzxHNg9DBfpO89k-v0ha3F2rTg39mn_MTeyrBeQHWU7LWPLHKgnqZhAIZYtMQNTjLJ2I-HUUBEfoAqmseYoyGAunb1Jpq"/>
+<div class="cta-overlay absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[2px]">
+<button class="bg-surface text-primary px-8 py-3 font-label-sm border border-primary hover:bg-primary hover:text-on-primary transition-all duration-300">DÉCOUVRIR</button>
+</div>
+</div>
+<span class="font-label-sm text-secondary mb-1">POÉSIE &amp; PHILOSOPHIE</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-secondary transition-colors">L'Écho du Silence</h3>
+<p class="font-body-md text-on-surface-variant mb-3 italic">Hélène Marois</p>
+<span class="mt-auto font-label-sm text-on-surface tracking-widest">22,00€</span>
+</div>
+<!-- Repeat for Grid Density -->
+<!-- Book Card 5 -->
+<div class="book-card group cursor-pointer flex flex-col">
+<div class="relative overflow-hidden aspect-[3/4] mb-stack-sm border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A clean book cover titled Equilibre Digital, illustrating a single feather balancing on a precise laser-thin line, in a sleek modern tech aesthetic. The colors are limited to shades of gray, white, and a sharp accent of Bordeaux. The overall mood is futuristic yet organic. Lighting is sharp and bright, consistent with a high-end minimalist design house style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATZbthL0gmuaD5csosJUlOe6uPsqoah1LwICe7CwoWkrdqGTBWMZ9ruatP8vdaCcWuJRWGLEYFkZEtjeH1vPvKQhidqKwMAJ1UQTgvdQkWF1BuC6tq8vgag3qHUy6t5s_5cMk7WGRfm_j3eiBGCIzLTSSOmPfb5YCR-glBNFhu-5WSvCg3i_y9xowz4kWCfLbkJYEIsbz5KNB0TVwHe4JEbNfkPLLqgGEQug2yrX2ss40gfXYnKvNl5sEVRm95p1c400Lp6iH4BuRj"/>
+<div class="cta-overlay absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[2px]">
+<button class="bg-surface text-primary px-8 py-3 font-label-sm border border-primary hover:bg-primary hover:text-on-primary transition-all duration-300">DÉCOUVRIR</button>
+</div>
+</div>
+<span class="font-label-sm text-secondary mb-1">SOCIÉTÉ</span>
+<h3 class="font-headline-md text-headline-md mb-2 group-hover:text-secondary transition-colors">Équilibre Digital</h3>
+<p class="font-body-md text-on-surface-variant mb-3 italic">Marc Durand</p>
+<span class="mt-auto font-label-sm text-on-surface tracking-widest">27,00€</span>
+</div>
+</div>
+</section>
+<!-- Pagination -->
+<nav class="flex items-center justify-center gap-6 py-stack-lg border-t border-outline-variant max-w-[1280px] mx-auto">
+<button class="font-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span> PRÉCÉDENT
+            </button>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center font-label-sm bg-primary text-on-primary">1</button>
+<button class="w-10 h-10 flex items-center justify-center font-label-sm text-on-surface-variant hover:text-primary border border-transparent hover:border-outline transition-all">2</button>
+<button class="w-10 h-10 flex items-center justify-center font-label-sm text-on-surface-variant hover:text-primary border border-transparent hover:border-outline transition-all">3</button>
+<span class="text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center font-label-sm text-on-surface-variant hover:text-primary border border-transparent hover:border-outline transition-all">12</button>
+</div>
+<button class="font-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+                SUIVANT <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</nav>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-primary">
+<div class="col-span-1 md:col-span-1">
+<span class="font-display-xl text-headline-md text-on-primary block mb-stack-sm">Editions Dhabarry</span>
+<p class="text-on-primary/70 font-body-md leading-relaxed">
+                Maison d’édition indépendante, gardienne des textes qui éclairent la conscience et structurent l’esprit.
+            </p>
+</div>
+<div>
+<h4 class="font-label-sm text-secondary-container mb-stack-sm tracking-[0.2em]">COLLECTIONS</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">Développement Personnel</a></li>
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">Management &amp; Leadership</a></li>
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">Sciences Humaines</a></li>
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">Beaux Livres</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-secondary-container mb-stack-sm tracking-[0.2em]">INFORMATIONS</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">Mentions Légales</a></li>
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">CGV</a></li>
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">Contact</a></li>
+<li><a class="text-on-primary/70 font-body-md hover:text-on-primary transition-colors" href="#">Presse</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-secondary-container mb-stack-sm tracking-[0.2em]">NEWSLETTER</h4>
+<p class="text-on-primary/70 font-body-md mb-4">Recevez nos parutions et actualités littéraires.</p>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-on-primary/30 py-2 text-on-primary placeholder:text-on-primary/30 focus:outline-none focus:border-secondary transition-colors font-body-md" placeholder="Votre email" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-on-primary hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined">east</span>
+</button>
+</div>
+</div>
+<div class="col-span-full mt-stack-md pt-stack-sm border-t border-on-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-on-primary/50 text-[10px] tracking-widest uppercase">© 2024 Editions Dhabarry. Tous droits réservés.</span>
+<div class="flex gap-6">
+<a class="text-on-primary/50 hover:text-on-primary transition-colors text-xs font-label-sm" href="#">INSTAGRAM</a>
+<a class="text-on-primary/50 hover:text-on-primary transition-colors text-xs font-label-sm" href="#">LINKEDIN</a>
+<a class="text-on-primary/50 hover:text-on-primary transition-colors text-xs font-label-sm" href="#">FACEBOOK</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for header parallax or fade in
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            const hero = document.querySelector('header');
+            if(hero) {
+                hero.style.opacity = Math.max(0, 1 - scrollPos / 600);
+                hero.style.transform = `translateY(${scrollPos * 0.1}px)`;
+            }
+        });
+
+        // Hover effects for the cards to reveal CTAs
+        const cards = document.querySelectorAll('.book-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential JS logic for complex animations if needed
+            });
+        });
+    </script>
+</body></html>

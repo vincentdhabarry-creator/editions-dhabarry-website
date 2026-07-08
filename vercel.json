@@ -1,4 +1,5 @@
 {
+  "alias": ["editionsdhabarry.vercel.app"],
   "rewrites": [
     { "source": "/(.*)", "destination": "/$1" }
   ]

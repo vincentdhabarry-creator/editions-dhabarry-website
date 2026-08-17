@@ -29,7 +29,7 @@ Dans le projet Vercel : **Settings > Environment Variables**, ajoute :
 | `STRIPE_SECRET_KEY` | ta clé secrète Stripe |
 | `STRIPE_WEBHOOK_SECRET` | le signing secret du webhook |
 | `RESEND_API_KEY` | ta clé API Resend |
-| `FROM_EMAIL` | ex: `Editions Dhabarry <commandes@editionsdhabarry.com>` |
+| `FROM_EMAIL` | ex: `Lectura <commandes@editionsdhabarry.com>` |
 | `SITE_URL` | ex: `https://editionsdhabarry.vercel.app` |
 
 Redéploie ensuite le site pour que les variables soient prises en compte.

@@ -27,13 +27,13 @@ async function sendEbookEmail(toEmail) {
   const pdfBase64 = fs.readFileSync(EBOOK_FILE).toString("base64");
 
   await resend.emails.send({
-    from: process.env.FROM_EMAIL || "Editions Dhabarry <onboarding@resend.dev>",
+    from: process.env.FROM_EMAIL || "Lectura <onboarding@resend.dev>",
     to: toEmail,
     subject: "Votre ebook — L'Intelligence Émotionnelle",
     html: `
-      <p>Merci pour votre achat auprès des Éditions Dhabarry !</p>
+      <p>Merci pour votre achat auprès des Lectura !</p>
       <p>Vous trouverez votre ebook <strong>L'Intelligence Émotionnelle</strong> en pièce jointe de cet email, au format PDF.</p>
-      <p>Bonne lecture,<br/>Editions Dhabarry</p>
+      <p>Bonne lecture,<br/>Lectura</p>
     `,
     attachments: [
       {

@@ -1,5 +1,5 @@
 /**
- * Protection par mot de passe — Editions Dhabarry (test)
+ * Protection par mot de passe — Lectura (test)
  * Insérer <script src="/auth.js"></script> dans chaque page, avant </body>
  */
 (function () {
@@ -21,7 +21,7 @@
 
   overlay.innerHTML = `
     <div style="text-align:center;max-width:360px;padding:2rem">
-      <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:700;color:#1d1b1a;margin-bottom:0.3rem">Editions Dhabarry</p>
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:700;color:#1d1b1a;margin-bottom:0.3rem">Lectura</p>
       <p style="font-size:0.75rem;letter-spacing:0.2em;color:#8B8070;text-transform:uppercase;margin-bottom:2.5rem">Accès privé — Test interne</p>
       <input id="ed-pwd" type="password" placeholder="Mot de passe"
         style="width:100%;padding:0.9rem 1rem;border:1px solid #d0c4bb;background:#fff;

@@ -1,7 +1,7 @@
 const Stripe = require("stripe");
 
 const EBOOK = {
-  name: "L'Intelligence Émotionnelle — Editions Dhabarry",
+  name: "L'Intelligence Émotionnelle — Lectura",
   description: "Ebook au format PDF — livraison immédiate par email après paiement.",
   unitAmount: 2990, // 29,90 € in cents
   currency: "eur",

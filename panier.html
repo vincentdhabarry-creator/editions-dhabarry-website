@@ -136,68 +136,22 @@
 </header>
 <main class="pt-32 pb-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-<!-- Left Column: Checkout Forms -->
+<!-- Left Column: Checkout -->
 <div class="lg:col-span-7 space-y-stack-lg">
-<!-- Section 1: Contact -->
 <section>
 <div class="flex items-center gap-4 mb-stack-md">
 <span class="font-display-xl text-headline-md opacity-20">01</span>
-<h2 class="font-headline-md text-headline-md border-b border-secondary/20 pb-2 flex-grow">COORDONNÉES</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<div class="space-y-1">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Prénom</label>
-<input class="editorial-input" placeholder="Jean" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Nom</label>
-<input class="editorial-input" placeholder="Dupont" type="text"/>
-</div>
-<div class="md:col-span-2 space-y-1">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Email <span class="normal-case tracking-normal font-normal opacity-60 text-xs">— Votre ebook sera envoyé sur cet email</span></label>
-<input class="editorial-input" placeholder="jean.dupont@email.com" type="email" required/>
-</div>
-</div>
-</section>
-<!-- Section 2: Payment -->
-<section>
-<div class="flex items-center gap-4 mb-stack-md">
-<span class="font-display-xl text-headline-md opacity-20">02</span>
-<h2 class="font-headline-md text-headline-md border-b border-secondary/20 pb-2 flex-grow">PAIEMENT</h2>
+<h2 class="font-headline-md text-headline-md border-b border-secondary/20 pb-2 flex-grow">PAIEMENT SÉCURISÉ</h2>
 </div>
 <div class="space-y-gutter">
-<!-- Toggle -->
-<div class="flex border border-outline-variant p-1 rounded-sm">
-<button class="flex-1 py-3 text-center font-label-sm text-label-sm uppercase tracking-widest bg-primary text-on-primary transition-all duration-300" id="card-toggle">
-                                Carte Bancaire
-                            </button>
-<button class="flex-1 py-3 text-center font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-all duration-300" id="paypal-toggle">
-                                PayPal
-                            </button>
-</div>
-<!-- Card Details -->
-<div class="space-y-gutter" id="card-fields">
-<div class="space-y-1">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Numéro de carte</label>
-<div class="relative">
-<input class="editorial-input" placeholder="0000 0000 0000 0000" type="text"/>
-<span class="absolute right-0 bottom-3 material-symbols-outlined text-on-surface-variant">credit_card</span>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-gutter">
-<div class="space-y-1">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Expiration</label>
-<input class="editorial-input" placeholder="MM / YY" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">CVC</label>
-<input class="editorial-input" placeholder="123" type="text"/>
-</div>
-</div>
-</div>
-<button class="w-full bg-secondary hover:bg-secondary-fixed-variant text-on-primary py-5 rounded-full font-label-sm text-label-sm uppercase tracking-widest transition-all duration-300 active:scale-[0.98]">
-                            Confirmer l’achat — 29,90 €
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            En cliquant ci-dessous, vous serez redirigé vers la page de paiement sécurisée Stripe.
+                            Votre email de paiement sera utilisé pour vous envoyer l'ebook immédiatement après confirmation de l'achat.
+                        </p>
+<button class="w-full bg-secondary hover:bg-secondary-fixed-variant text-on-primary py-5 rounded-full font-label-sm text-label-sm uppercase tracking-widest transition-all duration-300 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed" id="checkout-btn">
+                            Procéder au paiement — 29,90 €
                         </button>
+<p id="checkout-error" class="text-error text-sm min-h-[1.2rem]"></p>
 <!-- Trust Badges -->
 <div class="flex flex-wrap justify-between items-center pt-8 border-t border-outline-variant opacity-60">
 <div class="flex items-center gap-2">
@@ -284,33 +238,28 @@
 </div>
 </footer>
 <script>
-        // Simple Interaction for Toggle
-        const cardBtn = document.getElementById('card-toggle');
-        const paypalBtn = document.getElementById('paypal-toggle');
-        const cardFields = document.getElementById('card-fields');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const checkoutError = document.getElementById('checkout-error');
 
-        cardBtn.addEventListener('click', () => {
-            cardBtn.classList.add('bg-primary', 'text-on-primary');
-            paypalBtn.classList.remove('bg-primary', 'text-on-primary');
-            cardFields.style.opacity = '1';
-            cardFields.style.pointerEvents = 'auto';
-        });
+        checkoutBtn.addEventListener('click', async () => {
+            checkoutError.textContent = '';
+            checkoutBtn.disabled = true;
+            checkoutBtn.textContent = 'Redirection en cours…';
 
-        paypalBtn.addEventListener('click', () => {
-            paypalBtn.classList.add('bg-primary', 'text-on-primary');
-            cardBtn.classList.remove('bg-primary', 'text-on-primary');
-            cardFields.style.opacity = '0.4';
-            cardFields.style.pointerEvents = 'none';
-        });
+            try {
+                const response = await fetch('/api/create-checkout-session', { method: 'POST' });
+                const data = await response.json();
 
-        // Input effect
-        document.querySelectorAll('.editorial-input').forEach(input => {
-            input.addEventListener('focus', () => {
-                input.parentElement.querySelector('label').style.color = '#9a4340';
-            });
-            input.addEventListener('blur', () => {
-                input.parentElement.querySelector('label').style.color = '';
-            });
+                if (!response.ok || !data.url) {
+                    throw new Error(data.error || 'Erreur inconnue.');
+                }
+
+                window.location.href = data.url;
+            } catch (err) {
+                checkoutError.textContent = "Le paiement n'a pas pu être initié. Merci de réessayer dans quelques instants.";
+                checkoutBtn.disabled = false;
+                checkoutBtn.textContent = 'Procéder au paiement — 29,90 €';
+            }
         });
     </script>
 <script src="/auth.js"></script>

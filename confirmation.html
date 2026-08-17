@@ -194,29 +194,18 @@
 <!-- Receipt Card -->
 <div class="bg-white border border-outline-variant p-8 flex-grow">
 <h3 class="font-display-xl text-headline-md mb-6">Récapitulatif</h3>
-<div class="space-y-4 mb-8">
+<div class="space-y-4 mb-8" id="order-recap">
 <div class="flex justify-between font-body-md">
-<span>Commande #DH-9283</span>
-<span class="text-on-surface-variant">14 Mars 2024</span>
-</div>
-<div class="editorial-rule"></div>
-<div class="flex justify-between font-body-md">
-<span>Sous-total</span>
-<span>24,00 €</span>
-</div>
-<div class="flex justify-between font-body-md">
-<span>TVA (5.5%)</span>
-<span>1,32 €</span>
+<span id="order-id">Commande —</span>
+<span class="text-on-surface-variant" id="order-date"></span>
 </div>
 <div class="editorial-rule"></div>
 <div class="flex justify-between font-bold text-headline-md">
 <span>TOTAL</span>
-<span class="text-secondary">25,32 €</span>
+<span class="text-secondary" id="order-total">—</span>
 </div>
+<p class="text-on-surface-variant text-sm" id="order-email"></p>
 </div>
-<button class="w-full border border-primary py-3 font-label-sm hover:bg-primary hover:text-on-primary transition-colors duration-300">
-                        TÉLÉCHARGER LA FACTURE
-                    </button>
 </div>
 <!-- Support Card -->
 <div class="bg-surface-container-highest p-8 border border-outline-variant">
@@ -309,11 +298,36 @@
 </div>
 </footer>
 <script>
-        // Micro-interaction for download button
-        document.querySelector('a[href="../index.html"]').addEventListener('click', (e) => {
-            console.log('Initiating download protocol...');
-            // In a real app, this would trigger the actual file download
-        });
+        // Récupère les détails réels de la commande auprès de Stripe via l'API serveur
+        (async () => {
+            const params = new URLSearchParams(window.location.search);
+            const sessionId = params.get('session_id');
+            const orderIdEl = document.getElementById('order-id');
+            const orderDateEl = document.getElementById('order-date');
+            const orderTotalEl = document.getElementById('order-total');
+            const orderEmailEl = document.getElementById('order-email');
+
+            if (!sessionId) {
+                orderIdEl.textContent = 'Commande';
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/order-details?session_id=${encodeURIComponent(sessionId)}`);
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || 'Erreur');
+
+                orderIdEl.textContent = `Commande #${data.id.slice(-8).toUpperCase()}`;
+                orderDateEl.textContent = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+                orderTotalEl.textContent = `${(data.amount_total / 100).toFixed(2).replace('.', ',')} €`;
+                if (data.customer_email) {
+                    orderEmailEl.textContent = `Un email de confirmation a été envoyé à ${data.customer_email}.`;
+                }
+            } catch (err) {
+                orderIdEl.textContent = 'Commande';
+                orderEmailEl.textContent = "Impossible de récupérer les détails de la commande, mais votre ebook vous a bien été envoyé par email.";
+            }
+        })();
 
         // Subtle parallax on scroll for editorial look
         window.addEventListener('scroll', () => {

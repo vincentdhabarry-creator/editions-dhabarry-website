@@ -1,6 +1,7 @@
 {
   "alias": ["editionsdhabarry.vercel.app"],
   "rewrites": [
+    { "source": "/intelligence-emotionnelle", "destination": "/intelligence-emotionnelle.html" },
     { "source": "/(.*)", "destination": "/$1" }
   ]
 }

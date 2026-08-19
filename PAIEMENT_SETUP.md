@@ -31,20 +31,32 @@ Dans le projet Vercel : **Settings > Environment Variables**, ajoute :
 | `RESEND_API_KEY` | ta clé API Resend |
 | `FROM_EMAIL` | ex: `Editions Dhabarry <commandes@editionsdhabarry.com>` |
 | `SITE_URL` | ex: `https://editionsdhabarry.vercel.app` |
+| `DOWNLOAD_LINK_SECRET` | une valeur aléatoire unique (voir `.env.example` pour la générer) |
 
 Redéploie ensuite le site pour que les variables soient prises en compte.
 
 ## 4. Tester
 
 1. En mode Test Stripe, utilise la carte `4242 4242 4242 4242`, une date future, un CVC quelconque.
-2. Passe une commande depuis `panier.html`.
-3. Vérifie que l'email avec le PDF en pièce jointe arrive bien.
-4. Vérifie que `confirmation.html` affiche le bon montant et le bon email.
-5. Une fois les tests concluants, remplace les clés Stripe `sk_test_...` par les clés `sk_live_...`
+2. Passe une commande depuis `panier.html` ou `intelligence-emotionnelle.html`.
+3. Vérifie que l'email arrive avec un bouton « Télécharger mon ebook » (voir section suivante).
+4. Clique dessus : le PDF téléchargé doit être filigrané à ton adresse email de test.
+5. Vérifie que `confirmation.html` affiche le bon montant et le bon email.
+6. Une fois les tests concluants, remplace les clés Stripe `sk_test_...` par les clés `sk_live_...`
    (et refais un webhook Live, les secrets Test et Live sont différents).
 
 ## Fichier livré à l'acheteur
 
-Le fichier envoyé après paiement est défini dans `api/webhook.js` (`EBOOK_FILE`) :
-actuellement `downloads/IE_Intelligence_Emotionnelle_Mobile.pdf`. Change ce chemin si tu veux
-livrer un autre fichier (par ex. une version « print » de meilleure qualité).
+Après paiement, l'acheteur ne reçoit pas le PDF en pièce jointe : l'email contient un **lien de
+téléchargement signé, valable 72h** (`api/webhook.js` génère le lien, `api/download.js` le vérifie
+et sert le fichier). À chaque téléchargement, le PDF est **filigrané à la volée** avec l'email de
+l'acheteur et son numéro de commande (via `pdf-lib`), pour dissuader le partage et permettre de
+tracer l'origine d'une copie qui circulerait.
+
+Cette limite dans le temps évite qu'un lien fixe reste utilisable indéfiniment s'il est partagé,
+mais sans base de données il n'y a pas de limite au *nombre* de téléchargements pendant les 72h —
+possible à ajouter plus tard (ex. avec Vercel KV / Upstash Redis) si besoin.
+
+Les fichiers disponibles sont définis dans `api/download.js` (`PRODUCTS`) — actuellement
+`downloads/IE_Intelligence_Emotionnelle_Mobile.pdf`. Ajoute une entrée dans cet objet pour chaque
+nouveau format (PDF standard, workbook…) une fois les fichiers fournis.

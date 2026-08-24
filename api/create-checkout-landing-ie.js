@@ -2,7 +2,7 @@ const Stripe = require("stripe");
 
 const EBOOK = {
   name: "L'Intelligence émotionnelle au quotidien — Editions Dhabarry",
-  description: "Ebook au format PDF — livraison immédiate par email après paiement. Workbook et formats additionnels offerts dès leur sortie.",
+  description: "Ebook (PDF mobile, PDF standard, EPUB) + workbook offert — livraison immédiate par email après paiement.",
   unitAmount: 1990, // 19,90 € in cents
   currency: "eur",
 };

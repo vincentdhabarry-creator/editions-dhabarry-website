@@ -57,6 +57,21 @@ Cette limite dans le temps évite qu'un lien fixe reste utilisable indéfiniment
 mais sans base de données il n'y a pas de limite au *nombre* de téléchargements pendant les 72h —
 possible à ajouter plus tard (ex. avec Vercel KV / Upstash Redis) si besoin.
 
-Les fichiers disponibles sont définis dans `api/download.js` (`PRODUCTS`) — actuellement
-`downloads/IE_Intelligence_Emotionnelle_Mobile.pdf`. Ajoute une entrée dans cet objet pour chaque
-nouveau format (PDF standard, workbook…) une fois les fichiers fournis.
+Les fichiers disponibles sont définis dans `api/download.js` (`PRODUCTS`) : PDF mobile, PDF
+standard, EPUB et workbook (64 pages). Un EPUB ne peut pas être filigrané visuellement comme un PDF
+(ce n'est pas des pages fixes) : l'email de l'acheteur est à la place inscrit dans les métadonnées
+internes du fichier (`content.opf`), pour rester traçable sans perturber la lecture.
+
+## Protection temporaire de la landing page
+
+Tant que l'offre n'est pas officiellement en vente, `intelligence-emotionnelle.html` peut être
+protégée par un mot de passe HTTP (via `middleware.js`, actif uniquement si la variable
+`LANDING_PREVIEW_PASSWORD` est configurée sur Vercel — sinon la page reste publique). Ajoute :
+
+| Variable | Valeur |
+|---|---|
+| `LANDING_PREVIEW_USER` | ex: `dhabarry` (optionnel, `dhabarry` par défaut) |
+| `LANDING_PREVIEW_PASSWORD` | le mot de passe de ton choix |
+
+Un navigateur affichera une demande d'identifiant/mot de passe standard avant d'afficher la page.
+Retire (ou vide) `LANDING_PREVIEW_PASSWORD` quand tu es prêt à ouvrir la page au public.

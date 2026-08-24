@@ -1,6 +1,7 @@
 const Stripe = require("stripe");
 const { Resend } = require("resend");
 const { createDownloadToken } = require("./_lib/downloadToken");
+const { PRODUCTS } = require("./download");
 
 const config = {
   api: {
@@ -29,7 +30,13 @@ async function sendEbookEmail(toEmail, sessionId, siteUrl) {
   }
 
   const token = createDownloadToken({ sessionId, secret: process.env.DOWNLOAD_LINK_SECRET });
-  const downloadUrl = `${siteUrl}/api/download?file=ebook-mobile&token=${encodeURIComponent(token)}`;
+
+  const links = Object.entries(PRODUCTS)
+    .map(([fileId, product]) => {
+      const url = `${siteUrl}/api/download?file=${fileId}&token=${encodeURIComponent(token)}`;
+      return `<p><a href="${url}" style="display:inline-block;padding:10px 20px;background:#0b1b33;color:#fff;text-decoration:none;border-radius:4px;margin:4px 0;">${product.label}</a></p>`;
+    })
+    .join("\n");
 
   await resend.emails.send({
     from: process.env.FROM_EMAIL || "Editions Dhabarry <onboarding@resend.dev>",
@@ -37,9 +44,9 @@ async function sendEbookEmail(toEmail, sessionId, siteUrl) {
     subject: "Votre ebook — L'Intelligence Émotionnelle",
     html: `
       <p>Merci pour votre achat auprès des Éditions Dhabarry !</p>
-      <p>Votre ebook <strong>L'Intelligence Émotionnelle</strong> vous attend, personnalisé à votre nom :</p>
-      <p><a href="${downloadUrl}" style="display:inline-block;padding:12px 24px;background:#0b1b33;color:#fff;text-decoration:none;border-radius:4px;">Télécharger mon ebook (PDF)</a></p>
-      <p style="font-size:12px;color:#666;">Ce lien est valable 72 heures. Passé ce délai, contactez-nous pour en recevoir un nouveau.</p>
+      <p>Votre programme <strong>L'Intelligence Émotionnelle au quotidien</strong> vous attend, personnalisé à votre nom :</p>
+      ${links}
+      <p style="font-size:12px;color:#666;">Ces liens sont valables 72 heures. Passé ce délai, contactez-nous pour en recevoir de nouveaux.</p>
       <p>Bonne lecture,<br/>Editions Dhabarry</p>
     `,
   });

@@ -2,13 +2,34 @@ const Stripe = require("stripe");
 const fs = require("fs");
 const path = require("path");
 const { PDFDocument, rgb, degrees, StandardFonts } = require("pdf-lib");
+const JSZip = require("jszip");
 const { verify } = require("./_lib/downloadToken");
 
-// Fichiers disponibles au téléchargement, par identifiant public.
+// Fichiers disponibles au téléchargement, par identifiant public (paramètre ?file=).
 const PRODUCTS = {
   "ebook-mobile": {
-    path: path.join(process.cwd(), "downloads", "IE_Intelligence_Emotionnelle_Mobile.pdf"),
-    filename: "IE_Intelligence_Emotionnelle.pdf",
+    type: "pdf",
+    path: path.join(process.cwd(), "downloads", "book_print_mobile.pdf"),
+    filename: "IE_Intelligence_Emotionnelle_Mobile.pdf",
+    label: "Ebook — PDF mobile",
+  },
+  "ebook-print": {
+    type: "pdf",
+    path: path.join(process.cwd(), "downloads", "book_print.pdf"),
+    filename: "IE_Intelligence_Emotionnelle_Standard.pdf",
+    label: "Ebook — PDF standard",
+  },
+  workbook: {
+    type: "pdf",
+    path: path.join(process.cwd(), "downloads", "workbook.pdf"),
+    filename: "IE_Workbook.pdf",
+    label: "Workbook pratique (64 pages)",
+  },
+  epub: {
+    type: "epub",
+    path: path.join(process.cwd(), "downloads", "livre.epub"),
+    filename: "IE_Intelligence_Emotionnelle.epub",
+    label: "Ebook — EPUB",
   },
 };
 
@@ -20,7 +41,7 @@ async function watermarkPdf(bytes, stampText) {
   pages.forEach((page) => {
     const { width, height } = page.getSize();
     page.drawText(stampText, {
-      x: width / 2 - (stampText.length * 3.2),
+      x: width / 2 - stampText.length * 3.2,
       y: height / 2,
       size: 11,
       font,
@@ -41,6 +62,29 @@ async function watermarkPdf(bytes, stampText) {
   return pdfDoc.save();
 }
 
+// Un PDF filigrane visuellement chaque page. Un EPUB (zip de fichiers texte)
+// ne s'y prête pas de la même façon : on inscrit plutôt l'identité de
+// l'acheteur dans les métadonnées internes (content.opf), pour que le
+// fichier reste traçable en cas de partage sans altérer la lecture.
+async function stampEpub(bytes, stampText) {
+  const zip = await JSZip.loadAsync(bytes);
+  const opfPath = "EPUB/content.opf";
+  const opfContent = await zip.file(opfPath).async("string");
+  const stamped = opfContent.replace(
+    "</metadata>",
+    `<meta property="dhabarry:licensed-to">${stampText}</meta></metadata>`
+  );
+  zip.file(opfPath, stamped);
+  // Le fichier "mimetype" doit rester non compressé en première entrée
+  // (spec EPUB/OCF) : generateAsync le compresserait sinon avec le reste.
+  zip.file("mimetype", "application/epub+zip", { compression: "STORE" });
+  return zip.generateAsync({
+    type: "nodebuffer",
+    mimeType: "application/epub+zip",
+    compression: "DEFLATE",
+  });
+}
+
 module.exports = async function handler(req, res) {
   const { token, file } = req.query;
 
@@ -58,7 +102,10 @@ module.exports = async function handler(req, res) {
     return res.status(403).json({ error: `Lien de téléchargement invalide : ${err.message}` });
   }
 
-  const product = PRODUCTS[file] || PRODUCTS["ebook-mobile"];
+  const product = PRODUCTS[file];
+  if (!product) {
+    return res.status(404).json({ error: "Fichier demandé introuvable." });
+  }
 
   const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
   let session;
@@ -77,13 +124,16 @@ module.exports = async function handler(req, res) {
 
   try {
     const originalBytes = fs.readFileSync(product.path);
-    const watermarked = await watermarkPdf(originalBytes, stamp);
+    const stamped =
+      product.type === "epub" ? await stampEpub(originalBytes, stamp) : await watermarkPdf(originalBytes, stamp);
 
-    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Type", product.type === "epub" ? "application/epub+zip" : "application/pdf");
     res.setHeader("Content-Disposition", `attachment; filename="${product.filename}"`);
-    return res.status(200).send(Buffer.from(watermarked));
+    return res.status(200).send(Buffer.from(stamped));
   } catch (err) {
     console.error("Erreur génération du téléchargement:", err);
     return res.status(500).json({ error: "Impossible de générer le fichier." });
   }
 };
+
+module.exports.PRODUCTS = PRODUCTS;

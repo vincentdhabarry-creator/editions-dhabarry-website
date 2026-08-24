@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "jszip": "^3.10.1",
     "pdf-lib": "^1.17.1",
     "resend": "^4.0.1",
     "stripe": "^17.4.0"

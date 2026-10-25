@@ -1,0 +1,108 @@
+{
+ "chartes": {
+  "dhabarry": {
+   "nom": "Dhabarry Classique",
+   "themes": "Psychologie, développement personnel, essai",
+   "dark": "#231a11",
+   "accent": "#9a4340",
+   "text": "#2b221b",
+   "sand": "#f1e0d0",
+   "muted": "#695c50",
+   "head": "Playfair Display",
+   "body": "Source Serif 4",
+   "ui": "Inter"
+  },
+  "serenite": {
+   "nom": "Sérénité",
+   "themes": "Bien-être, méditation, santé, spiritualité",
+   "dark": "#1f3a32",
+   "accent": "#4f8a72",
+   "text": "#22302b",
+   "sand": "#e3eee6",
+   "muted": "#5f7369",
+   "head": "Cormorant Garamond",
+   "body": "Lora",
+   "ui": "Nunito Sans"
+  },
+  "business": {
+   "nom": "Business Pro",
+   "themes": "Entrepreneuriat, finance, carrière, management",
+   "dark": "#0f1f3d",
+   "accent": "#c8962e",
+   "text": "#1d2433",
+   "sand": "#efe6d2",
+   "muted": "#5a6478",
+   "head": "Montserrat",
+   "body": "Source Serif 4",
+   "ui": "Inter"
+  },
+  "energie": {
+   "nom": "Énergie",
+   "themes": "Sport, motivation, productivité, nutrition",
+   "dark": "#18181b",
+   "accent": "#e8572a",
+   "text": "#1f1f23",
+   "sand": "#fde4d7",
+   "muted": "#5e5e66",
+   "head": "Poppins",
+   "body": "Literata",
+   "ui": "Poppins"
+  },
+  "digital": {
+   "nom": "Digital",
+   "themes": "Tech, IA, marketing en ligne, freelancing",
+   "dark": "#14112b",
+   "accent": "#6c4cf4",
+   "text": "#1c1a2e",
+   "sand": "#e9e4ff",
+   "muted": "#5d5a78",
+   "head": "Space Grotesk",
+   "body": "IBM Plex Serif",
+   "ui": "IBM Plex Sans"
+  },
+  "famille": {
+   "nom": "Famille",
+   "themes": "Parentalité, éducation, jeunesse, couple",
+   "dark": "#263264",
+   "accent": "#f0675a",
+   "text": "#262b45",
+   "sand": "#ffe6d6",
+   "muted": "#5f6788",
+   "head": "Fredoka",
+   "body": "Nunito",
+   "ui": "Nunito"
+  }
+ },
+ "polices_google": {
+  "Playfair Display": "Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700",
+  "Source Serif 4": "Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400",
+  "Inter": "Inter:wght@400;500;600;700;800",
+  "Cormorant Garamond": "Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600",
+  "Lora": "Lora:ital,wght@0,400;0,600;0,700;1,400",
+  "Nunito Sans": "Nunito+Sans:wght@400;600;700;800",
+  "Montserrat": "Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400",
+  "Poppins": "Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400",
+  "Literata": "Literata:ital,wght@0,400;0,600;0,700;1,400",
+  "Space Grotesk": "Space+Grotesk:wght@400;500;600;700",
+  "IBM Plex Serif": "IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400",
+  "IBM Plex Sans": "IBM+Plex+Sans:wght@400;500;600;700",
+  "Fredoka": "Fredoka:wght@400;500;600;700",
+  "Nunito": "Nunito:ital,wght@0,400;0,700;0,800;0,900;1,400"
+ },
+ "polices_secours": {
+  "Playfair Display": "Georgia, serif",
+  "Source Serif 4": "Georgia, serif",
+  "Inter": "Arial, sans-serif",
+  "Cormorant Garamond": "Garamond, Georgia, serif",
+  "Lora": "Georgia, serif",
+  "Nunito Sans": "Arial, sans-serif",
+  "Montserrat": "Arial, sans-serif",
+  "Poppins": "Arial, sans-serif",
+  "Literata": "Georgia, serif",
+  "Space Grotesk": "Arial, sans-serif",
+  "IBM Plex Serif": "Georgia, serif",
+  "IBM Plex Sans": "Arial, sans-serif",
+  "Fredoka": "Arial, sans-serif",
+  "Nunito": "Arial, sans-serif"
+ }
+}

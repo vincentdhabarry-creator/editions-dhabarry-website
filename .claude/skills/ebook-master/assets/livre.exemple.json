@@ -1,0 +1,26 @@
+{
+  "titre": "Intelligence émotionnelle",
+  "sous_titre": "Comprendre et apprivoiser ses émotions en 30 jours",
+  "auteur": "Vincent Dhabarry",
+  "editeur": "Éditions Dhabarry",
+  "annee": "2026",
+  "site": "editions-dhabarry.fr",
+  "langue": "fr",
+  "isbn": "",
+  "charte": "dhabarry",
+  "format": "6x9",
+  "corps": 10.5,
+  "description": "Description de vente (150 à 300 mots).",
+  "mots_cles": ["intelligence émotionnelle", "gestion des émotions", "stress", "confiance en soi"],
+  "dedicace": "",
+  "sommaire": true,
+  "avertissement": "Ce livre ne remplace pas l’avis d’un professionnel de santé.",
+  "chapitres": [
+    {"partie": "Comprendre", "numero": "Partie I"},
+    "chapitres/03-kidnapping-amygdalien.html"
+  ],
+  "a_propos": "Quelques lignes sur l’auteur, son parcours et ce qui l’a conduit à écrire ce livre.",
+  "du_meme_auteur": ["Titre d’un autre livre"],
+  "message_fin": "Ce livre vous a aidé ? Un avis sur la boutique où vous l’avez acheté aide énormément un auteur indépendant.",
+  "couverture": { "modele": "classique", "bandeau": "", "image": "" }
+}

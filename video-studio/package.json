@@ -1,0 +1,38 @@
+{
+  "name": "video-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Générateur de vidéos verticales (TikTok/Reels/Shorts) à partir d'un texte ou de statistiques, avec narration IA et sous-titres animés.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "remotion:studio": "remotion studio src/remotion/index.ts",
+    "remotion:render": "remotion render src/remotion/index.ts VideoProject out/video.mp4"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.518",
+    "@remotion/cli": "4.0.518",
+    "@remotion/player": "4.0.518",
+    "@remotion/renderer": "4.0.518",
+    "lucide-react": "^0.469.0",
+    "next": "14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.518",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.35",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  }
+}
